@@ -33,6 +33,7 @@ Now let's create a reusable prompt that automates the entire assignment creation
    ```markdown
    ---
    mode: agent
+   agent: agent
    description: Create a new programming homework assignment
    ---
 
