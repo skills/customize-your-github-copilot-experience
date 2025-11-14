@@ -24,8 +24,8 @@
         "chat.instructionsFilesLocations": {
           ".github/instructions": true
         },
-        "chat.modeFilesLocations": {
-          ".github/chatmodes": true
+        "chat.agentFilesLocations": {
+          ".github/agents": true
         }
       }
     }
