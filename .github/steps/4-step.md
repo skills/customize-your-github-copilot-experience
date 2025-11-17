@@ -30,9 +30,12 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
    ---
    agent: 💡 assignment-brainstorming
    description: Assignment brainstorming assistant
-   tools: ["codebase", "search"]
+   tools: ["codebase", "search", "fetch"]
    handoffs:
-     - agent
+     - label: Implement assignment
+       agent: agent
+       prompt: Now implement the assignment outlined above.
+       send: false
    ---
 
    # 💡 Assignment Brainstorming Assistant
@@ -56,10 +59,6 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
    - 💡 Focus on concepts, not details
    - 🚫 Never write assignment specs
    - 📊 Base ideas on existing curriculum gaps
-
-   ## Handoff to Agent Mode
-
-   When the user is ready to implement an assignment idea, suggest handing off to `@agent` to create the actual assignment files and code.
    ```
 
 ### ⌨️ Activity: Test the Brainstorming Custom Agent
@@ -92,7 +91,6 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
 
 1. Try asking follow-up questions to see how the custom agent maintains its personality throughout the conversation.
 
-1. **(Optional)** Try the handoff feature by asking the agent to implement one of the ideas. The agent should suggest handing off to `@agent` mode to create the actual assignment.
 
 1. Commit and push your changes for the new custom agent file: `.github/agents/assignment-brainstorming.agent.md`
 
@@ -102,10 +100,7 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
 <summary>Having trouble? 🤷</summary><br/>
 
 - Make sure the custom agent file is in `.github/agents/` directory with the `.agent.md` extension.
-- Custom agents are selected from the dropdown list at the top of the chat interface, not with `@` mentions.
+- Custom agents are selected from the dropdown list at the bottom of the chat interface, not with `@` mentions.
 - If the custom agent doesn't appear in the dropdown, restart VS Code or reload the window.
-- The `tools` array in frontmatter controls which capabilities the custom agent can access.
-- Custom agents maintain their personality throughout the entire conversation thread.
-- The `handoffs` array enables the agent to suggest transitioning to other agents like `@agent` for implementation tasks.
 
 </details>
