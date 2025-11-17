@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - '.github/chatmodes/**'
-      - '**/*.chatmode.md'
+      - '.github/agents/**'
+      - '**/*.agent.md'
 
 permissions:
   contents: write
@@ -59,12 +59,12 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check if assignment-brainstorming.chatmode.md exists
+      - name: Check if assignment-brainstorming.agent.md exists
         id: check-file-exists
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.7.0
         with:
-          file: '.github/chatmodes/assignment-brainstorming.chatmode.md'
+          file: '.github/agents/assignment-brainstorming.agent.md'
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -77,7 +77,7 @@ jobs:
           vars: |
             step_number: 4
             results_table:
-              - description: "Created assignment-brainstorming.chatmode.md file"
+              - description: "Created assignment-brainstorming.agent.md file"
                 passed: ${{ steps.check-file-exists.outcome == 'success' }}
 
       # END: Check practical exercise

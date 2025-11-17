@@ -1,32 +1,37 @@
-## Step 4: Creating Custom Chat Modes
+## Step 4: Creating Custom Agents
 
 Now that you have instructions, prompts, and templates working together, you want to take customization one step further. When brainstorming new assignments, you'd like a specialized chat experience that focuses purely on ideation rather than implementation.
 
-### 📖 Theory: Custom Chat Modes
+### 📖 Theory: Custom Agents
 
-Custom chat modes (`*.chatmode.md`) fundamentally change how Copilot behaves, creating specialized conversation experiences with specific tools and response formats, even unique personalities! They are selected from a dropdown list in the Copilot Chat interface.
+Custom agents (`*.agent.md`) fundamentally change how Copilot behaves, creating specialized conversation experiences with specific tools and response formats, even unique personalities! They are selected from a dropdown list in the Copilot Chat interface.
 
-Visual Studio Code will look for `*.chatmode.md` files in `.github/chatmodes/` directory by [default](vscode://settings/chat.modeFilesLocations).
+Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directory.
 
 > [!TIP]
-> Learn more about Chat Modes:
+> Learn more about Custom Agents:
 >
-> - [VS Code Docs: Custom Chat Modes](https://code.visualstudio.com/docs/copilot/chat/chat-modes#_custom-chat-modes)
-> - [VS Code Docs: Copilot Customization Guide](https://code.visualstudio.com/docs/copilot/copilot-customization)
+> - [VS Code Docs: Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+> - [GitHub Docs: Custom Agents Configuration](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 
 
-### ⌨️ Activity: Create an Assignment Brainstorming Chat Mode
+### ⌨️ Activity: Create an Assignment Brainstorming Custom Agent
 
-Now let's create a specialized chat mode for brainstorming assignment ideas.
+Now let's create a specialized custom agent for brainstorming assignment ideas.
 
-1. Create a new file called `.github/chatmodes/assignment-brainstorming.chatmode.md`
+1. Create a new file called:
+
+   ```text
+   .github/agents/assignment-brainstorming.agent.md
+   ```
 
 1. Add the following content to create a focused brainstorming experience:
 
    ```markdown
    ---
-   description: 💡 Assignment brainstorming assistant
-   tools: ["codebase", "search"]
+   agent: assignment-brainstorming
+   description: Assignment brainstorming assistant
+   tools: ["search", "fetch"]
    ---
 
    # 💡 Assignment Brainstorming Assistant
@@ -52,15 +57,15 @@ Now let's create a specialized chat mode for brainstorming assignment ideas.
    - 📊 Base ideas on existing curriculum gaps
    ```
 
-### ⌨️ Activity: Test the Brainstorming Chat Mode
+### ⌨️ Activity: Test the Brainstorming Custom Agent
 
 1. Open Copilot Chat in VS Code.
 
-1. Select your custom chat mode from the chat mode dropdown list.
+1. Select your custom agent from the agent dropdown list.
 
-   <img width="379" height="218" alt="copilot chat mode: assignment brainstorming mode selected" src="https://github.com/user-attachments/assets/4effffa7-b8ef-4830-8050-9c777f9f0189" />
+   <img width="379" height="218" alt="copilot agent: assignment brainstorming agent selected" src="https://github.com/user-attachments/assets/4effffa7-b8ef-4830-8050-9c777f9f0189" />
 
-1. Test the chat mode with questions a teacher might ask. Notice the different response format!
+1. Test the custom agent with questions a teacher might ask. Notice the different response format!
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -80,19 +85,17 @@ Now let's create a specialized chat mode for brainstorming assignment ideas.
    > What would be a good follow-up assignment after the data analysis assignment?
    > ```
 
-1. Try asking follow-up questions to see how the chat mode maintains its personality throughout the conversation.
+1. Try asking follow-up questions to see how the custom agent maintains its personality throughout the conversation.
 
-1. Commit and push your changes for the new chat mode file: `.github/chatmodes/assignment-brainstorming.chatmode.md`
+1. Commit and push your changes for the new custom agent file: `.github/agents/assignment-brainstorming.agent.md`
 
 1. Wait for Mona to give you a final review!
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- Make sure the chat mode file is in `.github/chatmodes/` directory with the `.chatmode.md` extension.
-- Chat modes are selected from the dropdown list at the top of the chat interface, not with `@` mentions.
-- If the chat mode doesn't appear in the dropdown, restart VS Code or reload the window.
-- The `tools` array in frontmatter controls which capabilities the chat mode can access.
-- Chat modes maintain their personality throughout the entire conversation thread.
+- Make sure the custom agent file is in `.github/agents/` directory with the `.agent.md` extension.
+- Custom agents are selected from the dropdown list at the bottom of the chat interface, not with `@` mentions.
+- If the custom agent doesn't appear in the dropdown, restart VS Code or reload the window.
 
 </details>
