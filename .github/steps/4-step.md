@@ -22,20 +22,19 @@ Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directo
 
 Now let's create a specialized custom agent for brainstorming assignment ideas.
 
-1. Create a new file called `.github/agents/assignment-brainstorming.agent.md`
+1. Create a new file called:
+
+   ```text
+   .github/agents/assignment-brainstorming.agent.md
+   ```
 
 1. Add the following content to create a focused brainstorming experience:
 
    ```markdown
    ---
-   agent: 💡 assignment-brainstorming
+   agent: assignment-brainstorming
    description: Assignment brainstorming assistant
-   tools: ["codebase", "search", "fetch"]
-   handoffs:
-     - label: Implement assignment
-       agent: agent
-       prompt: Now implement the assignment outlined above.
-       send: false
+   tools: ["search", "fetch"]
    ---
 
    # 💡 Assignment Brainstorming Assistant
@@ -90,7 +89,6 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
    > ```
 
 1. Try asking follow-up questions to see how the custom agent maintains its personality throughout the conversation.
-
 
 1. Commit and push your changes for the new custom agent file: `.github/agents/assignment-brainstorming.agent.md`
 

@@ -57,7 +57,11 @@ To work with custom instructions, let's first set up our development environment
 
 Now that you've explored the project, let's create custom instructions to help Copilot understand your educational website project.
 
-1. In VS Code, create a new file called `.github/copilot-instructions.md`
+1. In VS Code, create a new file called:
+
+   ```text
+   .github/copilot-instructions.md
+   ``` 
 
    > ❕ **Important:** Make sure the file name is correct. This specific filename is required for Copilot to recognize it.
 
