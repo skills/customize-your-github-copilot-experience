@@ -6,10 +6,7 @@ Now that you have instructions, prompts, and templates working together, you wan
 
 Custom agents (`*.agent.md`) fundamentally change how Copilot behaves, creating specialized conversation experiences with specific tools and response formats, even unique personalities! They are selected from a dropdown list in the Copilot Chat interface.
 
-Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directory by [default](vscode://settings/chat.agentFilesLocations).
-
-> [!NOTE]
-> Custom agents are available as of VS Code release 1.106 and in preview. Custom agents were previously known as custom chat modes.
+Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directory.
 
 > [!TIP]
 > Learn more about Custom Agents:
