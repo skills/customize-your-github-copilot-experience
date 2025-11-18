@@ -23,7 +23,12 @@ Now let's create targeted instructions specifically for assignment files to ensu
 
 1. First, let's examine the existing assignment template. Open `templates/assignment-template.md` to see the structure we want all assignments to follow.
 
-1. Create a new file called `.github/instructions/assignments.instructions.md`
+1. Create a new file called:
+
+   ```text
+   .github/instructions/assignments.instructions.md
+   ```
+
 
 1. Add the following content to define assignment formatting standards. It will also ensure they are automatically applied for every chat request to Markdown (`.md`) files in `assignments` directory.
 
