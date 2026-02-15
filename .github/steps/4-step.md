@@ -31,7 +31,7 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
    ---
    name: assignment-brainstorming
    description: Assignment brainstorming assistant
-   tools: ["search", "fetch"]
+   tools: ["search", "web"]
    ---
 
    # 💡 Assignment Brainstorming Assistant
