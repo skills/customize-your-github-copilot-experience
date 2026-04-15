@@ -5,6 +5,7 @@
     "vscode": {
       "extensions": [
         "GitHub.copilot",
+        "GitHub.copilot-chat",
         "ms-python.python",
         "ms-python.debugpy",
         "ms-vscode.live-server",
