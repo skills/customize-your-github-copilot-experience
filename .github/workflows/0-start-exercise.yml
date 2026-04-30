@@ -18,7 +18,7 @@ jobs:
     if: |
       !github.event.repository.is_template
     name: Start Exercise
-    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.7.3
+    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.9.3
     with:
       exercise-title: "Customize Your GitHub Copilot Experience"
       intro-message: "Learn how to customize GitHub Copilot to work better for your team and projects."
@@ -29,12 +29,12 @@ jobs:
     needs: [start_exercise]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
 
       - name: Update assignment dates
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
@@ -59,7 +59,7 @@ jobs:
             fs.writeFileSync('config.json', JSON.stringify(config, null, 2) + '\n');
 
       - name: Commit updated config.json
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10.0.0
         with:
           add: "config.json"
           message: "Update assignment due dates for exercise start"
@@ -75,14 +75,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Get response templates
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.7.0
+          ref: v0.9.3
 
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1

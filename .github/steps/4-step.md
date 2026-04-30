@@ -1,6 +1,6 @@
 ## Step 4: Creating Custom Agents
 
-Now that you have instructions, prompts, and templates working together, you want to take customization one step further. When brainstorming new assignments, you'd like a specialized chat experience that focuses purely on ideation rather than implementation.
+Now that you have instructions, skills, and templates working together, you want to take customization one step further. When brainstorming new assignments, you'd like a specialized chat experience that focuses purely on ideation — and then hands off to Agent Mode to actually implement the assignment creation using the skill you built in Step 3.
 
 ### 📖 Theory: Custom Agents
 
@@ -14,10 +14,9 @@ Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directo
 > - [VS Code Docs: Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 > - [GitHub Docs: Custom Agents Configuration](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 
-
 ### ⌨️ Activity: Create an Assignment Brainstorming Custom Agent
 
-Now let's create a specialized custom agent for brainstorming assignment ideas.
+Now let's create a specialized custom agent that helps brainstorm assignment ideas, then hands off to Agent Mode to actually implement the assignment creation using the skill you built in Step 3.
 
 1. Create a new file called:
 
@@ -29,33 +28,39 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
 
    ```markdown
    ---
-   name: assignment-brainstorming
-   description: Assignment brainstorming assistant
-   tools: ["search", "web"]
+   name: Assignment Brainstorming
+   description: Brainstorm the next programming assignment for Mergington High School students
+   tools: ["search", "vscode/askQuestions"]
+   handoffs:
+     - label: "Create this assignment"
+       agent: agent
+       prompt: "Create a new assignment based on the recommendation from the brainstorming session above."
+       send: true
    ---
 
-   # 💡 Assignment Brainstorming Assistant
+   # Assignment Brainstorming Assistant
 
-   **BRAINSTORM MODE ACTIVATED** 🚀
+   Help the teacher decide on the next assignment by analyzing existing curriculum and suggesting one focused idea.
 
-   I'm your assignment brainstorming partner for Mergington High School! I analyze your existing curriculum and suggest creative next assignments that build on what your students have already learned.
+   ## Workflow
 
-   ## My Response Style
-
-   Every response follows this format:
-
-   🔍 QUICK SCAN: [Brief analysis of existing assignments]
-   💡 IDEA BURST: [3-5 rapid-fire suggestions]
-   🎯 NEXT QUESTION: [What I need to know to help more]
+   1. Scan the `assignments/` directory and `config.json` to understand what topics are already covered.
+   2. Use the `askQuestions` tool to gather the teacher's preferences — difficulty level, topic area, and any constraints.
+   3. Recommend **one** assignment: a title, the core concept, and a sentence on why it fills a curriculum gap.
+   4. Suggest using the **Create this assignment** button to build it.
 
    ## Rules
 
-   - ⚡ Keep responses short
-   - 🎯 Always end with a specific question
-   - 💡 Focus on concepts, not details
-   - 🚫 Never write assignment specs
-   - 📊 Base ideas on existing curriculum gaps
+   - Keep responses short — no more than a few sentences per section.
+   - Never write full assignment specs. That's the skill's job.
+   - Base recommendations on gaps in the existing curriculum.
+   - Always end with a clear next step.
    ```
+
+   Let's break down the key parts:
+   - **`tools: ["search", "vscode/askQuestions"]`** — gives the agent the ability to search the codebase and present structured questions with selectable options, rather than relying on free-text back-and-forth.
+   - **`handoffs`** — defines a "Create this assignment" button. When clicked, it switches to the regular Copilot Agent mode and automatically sends a prompt referencing the brainstormed recommendation. This should trigger the `new-assignment` skill from Step 3 so that the assignment is actually created based on the brainstormed idea.
+   - **The body instructions** — define the agent's personality and workflow. Notice it's focused on _ideation only_ and explicitly defers implementation to the skill.
 
 ### ⌨️ Activity: Test the Brainstorming Custom Agent
 
@@ -63,31 +68,23 @@ Now let's create a specialized custom agent for brainstorming assignment ideas.
 
 1. Select your custom agent from the agent dropdown list.
 
-   <img width="379" height="218" alt="copilot agent: assignment brainstorming agent selected" src="https://github.com/user-attachments/assets/4effffa7-b8ef-4830-8050-9c777f9f0189" />
+   <img width="379" height="218" alt="copilot agent: assignment brainstorming agent selected" src="../images/custom-agent-dropdown-selection.png" />
 
-1. Test the custom agent with questions a teacher might ask. Notice the different response format!
-
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > What assignment topics are missing from my current curriculum?
-   > ```
+1. Start a brainstorming session:
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > Suggest 3 advanced Python assignments for my students.
+   > What should I teach next?
    > ```
 
-   > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
-   >
-   > ```prompt
-   > What would be a good follow-up assignment after the data analysis assignment?
-   > ```
+1. The agent will scan your existing assignments, then ask you structured questions about difficulty and topic preferences. Answer the questions to narrow down the recommendation.
 
-1. Try asking follow-up questions to see how the custom agent maintains its personality throughout the conversation.
+1. Once the agent recommends an assignment, click the **Create this assignment** button to hand off to Agent Mode for implementation.
 
-1. Commit and push your changes for the new custom agent file: `.github/agents/assignment-brainstorming.agent.md`
+   <img width="380" alt="Create this assignment handoff button" src="../images/handoff-button.png" />
+
+1. Commit and push your changes to the `main` branch.
 
 1. Wait for Mona to give you a final review!
 

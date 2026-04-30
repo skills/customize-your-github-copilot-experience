@@ -8,7 +8,7 @@ Here's a recap of your accomplishments:
 
 - Set up repository-wide custom instructions to ensure consistent code generation
 - Created targeted custom instructions for specific file types and directories
-- Built reusable prompt templates for common tasks like homework assignments
+- Created an agent skill for automating homework assignment creation
 - Configured custom agents for specialized workflows
 
 ### What's next?
@@ -17,4 +17,4 @@ Take another GitHub Skills exercise on [GitHub Learn](https://learn.github.com/s
 
 - [Integrate MCP with Copilot](https://github.com/skills/integrate-mcp-with-copilot) - Learn how to extend Copilot with Model Context Protocol. You will learn about MCP tools which can also be used in custom agents and prompts!
 - [Modernize Legacy Code](https://github.com/skills/modernize-your-legacy-code-with-github-copilot) - Use Copilot to help refactor and improve existing codebases.
-- [GitHub Pages](https://github.com/skills/github-pages) - Learn how to publish static website's like the one in this exercise.
+- [GitHub Pages](https://github.com/skills/github-pages) - Learn how to publish static websites like the one in this exercise.

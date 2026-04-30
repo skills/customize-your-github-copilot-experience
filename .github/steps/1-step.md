@@ -9,7 +9,7 @@ You've heard Copilot Instructions can help with that!
 
 You will run this website in the first activity!
 
-<img width="600" alt="screenshot of homework website" src="https://github.com/user-attachments/assets/2383b6e9-64d5-4907-94b3-b67153efb008" />
+<img width="600" alt="screenshot of homework website" src="../images/homework-website-screenshot.png" />
 
 </details>
 
@@ -33,21 +33,17 @@ To work with custom instructions, let's first set up our development environment
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
 1. Confirm the **Repository** field is your copy of the exercise, not the original, then click the green **Create Codespace** button.
-
    - ✅ Your copy: `/{{full_repo_name}}`
    - ❌ Original: `/skills/customize-your-github-copilot-experience`
 
 1. Wait a moment for Visual Studio Code to load in your browser and for all extensions to install.
-
    - Ensure the **Live Preview** extension is activated.
-   - Ensure the **Python** extension is activated.
 
 1. Right-click on `index.html` and select **Show Preview** to see the website in action.
 
    > ❕ **Important**: Keep the preview tab open to see the live updates. We will be making edits throughout the exercise.
 
 1. Explore the project structure:
-
    - Browse the `assets/` folder to see the website assets (CSS, JavaScript, images).
    - Look at the `assignments/` folder to understand the existing assignment formats.
    - Review `index.html` in the root directory to see the main website structure.
@@ -61,7 +57,7 @@ Now that you've explored the project, let's create custom instructions to help C
 
    ```text
    .github/copilot-instructions.md
-   ``` 
+   ```
 
    > ❕ **Important:** Make sure the file name is correct. This specific filename is required for Copilot to recognize it.
 
@@ -102,7 +98,7 @@ Now that you've explored the project, let's create custom instructions to help C
 
 1. Notice that Copilot uses your custom instructions as a reference in the response.
 
-   <img width="504" height="183" alt="image" src="https://github.com/user-attachments/assets/2214ed9e-c165-4440-a23e-d2d33c0231a9" />
+   <img width="504" height="183" alt="Copilot response showing custom instructions reference" src="../images/copilot-custom-instructions-reference.png" />
 
 1. Commit the `.github/copilot-instructions.md` file to the `main` branch and push it to GitHub.
 

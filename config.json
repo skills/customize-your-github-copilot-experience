@@ -39,8 +39,8 @@
           "type": "python"
         }
       ]
-    }
-    ,{
+    },
+    {
       "id": "data-analysis",
       "title": "Data Analysis",
       "description": "Basics of data analysis: loading, exploring, and visualizing data in Python.",
