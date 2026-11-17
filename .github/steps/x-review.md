@@ -18,3 +18,7 @@ Take another GitHub Skills exercise on [GitHub Learn](https://learn.github.com/s
 - [Integrate MCP with Copilot](https://github.com/skills/integrate-mcp-with-copilot) - Learn how to extend Copilot with Model Context Protocol. You will learn about MCP tools which can also be used in custom agents and prompts!
 - [Modernize Legacy Code](https://github.com/skills/modernize-your-legacy-code-with-github-copilot) - Use Copilot to help refactor and improve existing codebases.
 - [GitHub Pages](https://github.com/skills/github-pages) - Learn how to publish static websites like the one in this exercise.
+
+For further reading:
+
+- Explore [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) for model selection and orchestration.
